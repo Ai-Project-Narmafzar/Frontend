@@ -10,7 +10,7 @@ const PageLayout = ({ children, match }) => {
 
   return (
     <div className={styles.container}>
-      {isLoading && <LoadingOverlay />}
+      {/* {isLoading && <LoadingOverlay />} */}
       <Suspense fallback={<SplashScreen />}>
         <div
           className={styles.content}

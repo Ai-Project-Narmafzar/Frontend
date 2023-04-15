@@ -33,19 +33,17 @@ const Routes = () => {
   return (
     <PageLayout>
       <Switch>
-        <>
-          <Route path="/" element={<Home />} />
-          <Route path="/auth/*" element={<AuthPage />} />
-          <Route
+        <Route path="/" element={<Home />} />
+        <Route path="/auth/*" element={<AuthPage />} />
+        {/* <Route
             path="/profile/*"
             element={
               <PrivateRoute>
                 <Profile />
               </PrivateRoute>
             }
-          />
-          <Route path="*" element={<Navigate to={'/'} replace />} />
-        </>
+          /> */}
+        <Route path="*" element={<Navigate to={'/auth'} replace />} />
       </Switch>
     </PageLayout>
   )
