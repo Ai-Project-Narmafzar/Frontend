@@ -1,4 +1,6 @@
 import GoogleIcon from './png/google-icon.png'
 import Logo from './png/logo.png'
 
-export { GoogleIcon, Logo }
+import SearchIcon from './svg/search.svg'
+
+export { GoogleIcon, Logo, SearchIcon }
