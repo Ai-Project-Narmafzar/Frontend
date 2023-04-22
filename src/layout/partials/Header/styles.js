@@ -1,17 +1,24 @@
 import { Link } from 'react-router-dom'
 import Styled from 'styled-components'
+import Colors from 'utils/Colors'
 
 export const Container = Styled('header')`
     width:100%;
     padding: 48px 32px;
-    max-width: 1512px;
     position: fixed;
     top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    left: 0;
+    right: 0;
     margin: 0 auto;
+    display: flex;
+    justify-content:center;
     z-index:100;
+    background: ${Colors.background};
+    transition: .3s all ease-in-out;
+
+    .content {
+        max-width: 1512px;
+    }
 `
 
 export const LoginLink = Styled(Link)`
