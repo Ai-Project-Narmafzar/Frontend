@@ -1,34 +1,62 @@
 import React from 'react'
-import { Routes as Switch, Route, Navigate } from 'react-router-dom'
+import {
+  Routes as Switch,
+  Route,
+  Navigate,
+  useLocation,
+} from 'react-router-dom'
 
 import { Col, Row } from 'react-grid-system'
 import { Container, NavItem, RouterContainer, SideBar } from './Styles'
-import { Root } from './pages'
+import { Root, Setting } from './pages'
 import { Button } from 'components'
-import { HeartPrimary, LogoutIcon, SettingIcon } from 'assets/images'
+import {
+  HeartIcon,
+  HeartPrimary,
+  LogoutIcon,
+  SettingIcon,
+  SettingPrimary,
+} from 'assets/images'
 
 const Profile = () => {
+  const location = useLocation()
+
   return (
     <Container>
-      <Row>
+      <Row gutterWidth={24}>
         <Col
           xs={12}
           lg={2}
           style={{ flexDirection: 'column', alignItems: 'center' }}
         >
           <SideBar>
-            <NavItem to={'/'} className={'active'}>
-              <img src={HeartPrimary} />
+            <NavItem
+              to={'/profile'}
+              className={location.pathname == '/profile' ? 'active' : ''}
+            >
+              <img
+                src={location.pathname == '/profile' ? HeartPrimary : HeartIcon}
+              />
               <span>کالکشن من</span>
             </NavItem>
-            <NavItem to={'/'}>
-              <img src={SettingIcon} />
+            <NavItem
+              to={'/profile/setting'}
+              className={location.pathname.includes('/setting') ? 'active' : ''}
+            >
+              <img
+                src={
+                  location.pathname.includes('/setting')
+                    ? SettingPrimary
+                    : SettingIcon
+                }
+              />
               <span>تنظیمات</span>
             </NavItem>
           </SideBar>
           <Button
             type={'secondary'}
-            style={{ width: '100%', height: 50, marginTop: 15 }}
+            width={'100%'} height={'50px'}
+            style={{ marginTop: 15 }}
           >
             خروج
             <img src={LogoutIcon} style={{ marginRight: 16 }} />
@@ -38,6 +66,7 @@ const Profile = () => {
           <RouterContainer>
             <Switch>
               <Route path={`/`} element={<Root />} />
+              <Route path={`/setting`} element={<Setting />} />
             </Switch>
           </RouterContainer>
         </Col>

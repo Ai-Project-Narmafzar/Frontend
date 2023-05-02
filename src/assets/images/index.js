@@ -10,7 +10,11 @@ import ChevronDownIcon from './svg/chevron-down.svg'
 import ChevronUpIcon from './svg/chevron-up.svg'
 import LogoutIcon from './svg/logout.svg'
 import HeartPrimary from './svg/heart_primary.svg'
+import HeartIcon from './svg/heart.svg'
 import SettingIcon from './svg/setting.svg'
+import SelectPicIcon from './svg/select_pic.svg'
+import EditIcon from './svg/edit.svg'
+import SettingPrimary from './svg/setting_primary.svg'
 
 export {
   GoogleIcon,
@@ -25,4 +29,8 @@ export {
   LogoutIcon,
   HeartPrimary,
   SettingIcon,
+  HeartIcon,
+  SelectPicIcon,
+  EditIcon,
+  SettingPrimary,
 }

@@ -2,7 +2,8 @@ import Styled from 'styled-components'
 import Colors from 'utils/Colors'
 
 export const CustomButton = Styled('a')`
-    width:100%;
+    width:${(props) => (props.width ? props.width : '100%')};
+    height:${(props) => (props.height ? props.height : 'unset')};
     padding: 16px 12px;
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
