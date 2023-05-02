@@ -23,8 +23,8 @@ export const Container = Styled('header')`
 
 export const LoginLink = Styled(Link)`
     font-weight: 400;
-    font-size: 27px;
-    line-height: 27px;
+    font-size: 18px;
+    line-height: 18px;
     color: #FFFFFF;
 `
 
@@ -39,7 +39,7 @@ export const ItemsContainer = Styled('ul')`
 export const NavItem = Styled('li')`
     margin-left: 48px;
     font-weight: 400;
-    font-size: 25px;
-    line-height: 25px;
+    font-size: 18px;
+    line-height: 18px;
     color: #FFFFFF;
 `

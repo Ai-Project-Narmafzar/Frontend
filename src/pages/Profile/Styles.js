@@ -22,11 +22,12 @@ export const SideBar = Styled('div')`
 
 export const RouterContainer = Styled('div')`
     width: 100%;
+    height: 100%;
     padding: 36px 0;
 `
 
 export const NavItem = Styled(Link)`
-width: 100%;
+    width: 100%;
     margin-bottom: 50px;
     display: flex;
     align-items: center;

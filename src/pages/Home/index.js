@@ -31,7 +31,7 @@ const Home = () => {
       </PageTitle>
       <SearchBarContainer>
         <input type={'text'} placeholder="تصویر دختر ایرانی در فضا..." />
-        <Button style={{ width: 176, height: 65 }}>
+        <Button style={{ width: 160, height: 56 }}>
           جست و جو
           <img src={SearchIcon} style={{ marginRight: 7 }} />
         </Button>
@@ -53,11 +53,11 @@ const Home = () => {
           type={'text'}
           placeholder="میخوای ببینی چطور ساخت عکس  کار میکنه؟ اول روی منو سوپرایز کن بزن و بعدش هم ساخت عکس!"
         />
-        <Button style={{ width: 170, height: 65, marginLeft: 30 }}>
+        <Button style={{ width: 160, height: 56, marginLeft: 30 }}>
           جست و جو
           <img src={SearchIcon} style={{ marginRight: 7 }} />
         </Button>
-        <Button type={'secondary'} style={{ width: 170, height: 65 }}>
+        <Button type={'secondary'} style={{ width: 160, height: 56 }}>
           منو سوپرایز کن
         </Button>
       </GenerateContainer>

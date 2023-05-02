@@ -11,8 +11,8 @@ export const Container = Styled('main')`
 
 export const PageTitle = Styled('h1')`
     font-weight: 400;
-    font-size: 28px;
-    line-height: 28px;
+    font-size: 22px;
+    line-height: 22px;
     color: #FFFFFF;
     text-align:center;
     margin-bottom:40px;
@@ -36,8 +36,8 @@ export const SearchBarContainer = Styled('div')`
         background: ${Colors.grey2};
         border-radius: 18px;
         font-weight: 400;
-        font-size: 25px;
-        line-height: 25px;
+        font-size: 18px;
+        line-height: 18px;
         margin-left: 32px;
         border: none;
         outline: none;

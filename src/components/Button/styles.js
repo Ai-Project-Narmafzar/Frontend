@@ -7,8 +7,8 @@ export const CustomButton = Styled('a')`
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 20px;
+    font-size: 18px;
+    line-height: 18px;
     color: ${Colors.text};
     background-color: ${({ type }) =>
       type == 'primary' ? Colors.primary : Colors.grey2};

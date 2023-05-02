@@ -8,8 +8,8 @@ export const CustomInput = Styled('input')`
     background: ${Colors.grey2};
     border-radius: 12px;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 20px;
+    font-size: 18px;
+    line-height: 18px;
     color: #FFFFFF;
     border: none;
     outline: none;

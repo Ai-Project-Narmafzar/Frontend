@@ -1,8 +1,15 @@
 import React from 'react'
+import { Container, MoreCollection, Title } from './Styles'
 
 const Root = () => {
   return (
-    <div>Root</div>
+    <Container>
+      <Title>کالکشن من</Title>
+      <MoreCollection>
+        اینجا میتونی عکس های مورد علاقت رو دانلود بکنی.
+        <strong>دانلود همه</strong>
+      </MoreCollection>
+    </Container>
   )
 }
 
