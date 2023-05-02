@@ -13,6 +13,7 @@ import { PrivateRoute } from 'components'
 
 const Home = lazy(() => import('./pages/Home'))
 const AuthPage = lazy(() => import('./pages/Auth'))
+const Profile = lazy(() => import('./pages/Profile'))
 
 const Routes = () => {
   const dispatch = useDispatch()
@@ -35,6 +36,7 @@ const Routes = () => {
       <Switch>
         <Route path="/" element={<Home />} />
         <Route path="/auth/*" element={<AuthPage />} />
+        <Route path="/profile/*" element={<Profile />} />
         {/* <Route
             path="/profile/*"
             element={

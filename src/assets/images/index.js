@@ -8,6 +8,9 @@ import DownloadIcon from './svg/download.svg'
 import ImgIcon from './svg/img.svg'
 import ChevronDownIcon from './svg/chevron-down.svg'
 import ChevronUpIcon from './svg/chevron-up.svg'
+import LogoutIcon from './svg/logout.svg'
+import HeartPrimary from './svg/heart_primary.svg'
+import SettingIcon from './svg/setting.svg'
 
 export {
   GoogleIcon,
@@ -18,5 +21,8 @@ export {
   DownloadIcon,
   ImgIcon,
   ChevronDownIcon,
-  ChevronUpIcon
+  ChevronUpIcon,
+  LogoutIcon,
+  HeartPrimary,
+  SettingIcon,
 }
