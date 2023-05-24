@@ -9,23 +9,18 @@ export const Container = Styled('main')`
     margin: 0 auto;
 `
 
-export const PageTitle = Styled('h1')`
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 22px;
+export const GenerateTitle = Styled('h2')`
+font-weight: 400;
+font-size: 20px;
+line-height: 20px;
     color: #FFFFFF;
+    margin-bottom: 40px;
     text-align:center;
-    margin-bottom:40px;
-
-    & strong {
-        color: ${Colors.primary};
-    }
-    
 `
 
-export const SearchBarContainer = Styled('div')`
+export const GenerateContainer = Styled('div')`
     width:100%;
-    padding: 0 98px 48px 98px;
+    padding: 0 0 48px 0;
     display: flex;
     align-items: center;
 
@@ -38,7 +33,7 @@ export const SearchBarContainer = Styled('div')`
         font-weight: 400;
         font-size: 18px;
         line-height: 18px;
-        margin-left: 32px;
+        margin-left: 62px;
         border: none;
         outline: none;
         color: white;
@@ -54,20 +49,22 @@ export const SearchBarContainer = Styled('div')`
     }
 `
 
-export const ArtiGlowImg = Styled('img')`
+export const ImagePlaceholder = Styled('div')`
     width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 32px;
-`
-
-export const MoreLink = Styled(Link)`
-    display:flex;
-    flex-direction:column;
+    aspect-ratio: 2 / 1;
+    display: flex;
+    flex-direction: column;
     align-items:center;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 18px;
-    color: rgba(242, 242, 242, 0.56);
+    justify-content:center;
+    background: ${Colors.grey2};
+    border-radius: 18px;
+    margin-bottom: 32px;
+
+    & span {
+        margin-top: 48px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 18px;
+        color: rgba(242, 242, 242, 0.56);
+    }
 `

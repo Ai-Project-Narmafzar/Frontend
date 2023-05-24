@@ -15,6 +15,7 @@ import SettingIcon from './svg/setting.svg'
 import SelectPicIcon from './svg/select_pic.svg'
 import EditIcon from './svg/edit.svg'
 import SettingPrimary from './svg/setting_primary.svg'
+import PenIcon from './svg/pen.svg'
 
 export {
   GoogleIcon,
@@ -33,4 +34,5 @@ export {
   SelectPicIcon,
   EditIcon,
   SettingPrimary,
+  PenIcon
 }

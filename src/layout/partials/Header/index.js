@@ -43,7 +43,7 @@ const Header = () => {
               <Link to={'#'}>
                 <NavItem>اکسپلور</NavItem>
               </Link>
-              <Link to={'#'}>
+              <Link to={'/create'}>
                 <NavItem>ساخت عکس جدید</NavItem>
               </Link>
               <Link to={'/faq'}>

@@ -16,6 +16,7 @@ const AuthPage = lazy(() => import('./pages/Auth'))
 const Profile = lazy(() => import('./pages/Profile'))
 const OnBoarding = lazy(() => import('./pages/OnBoarding'))
 const FAQ = lazy(() => import('./pages/FAQ'))
+const Create = lazy(() => import('./pages/Create'))
 
 const Routes = () => {
   const dispatch = useDispatch()
@@ -39,6 +40,7 @@ const Routes = () => {
         <Route path="/" element={<OnBoarding />} />
         <Route path="/home" element={<Home />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/create" element={<Create />} />
         <Route path="/auth/*" element={<AuthPage />} />
         <Route path="/profile/*" element={<Profile />} />
         {/* <Route

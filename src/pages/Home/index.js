@@ -47,30 +47,6 @@ const Home = () => {
         <img src={MoreIcon} />
         نمونه های بیشتر
       </MoreLink>
-      <GenerateTitle>تولید تصویر هوش مصنوعی آنلاین رایگان از متن</GenerateTitle>
-      <GenerateContainer>
-        <input
-          type={'text'}
-          placeholder="میخوای ببینی چطور ساخت عکس  کار میکنه؟ اول روی منو سوپرایز کن بزن و بعدش هم ساخت عکس!"
-        />
-        <Button width={'160px'} height={'56px'} style={{ marginLeft: 30 }}>
-          جست و جو
-          <img src={SearchIcon} style={{ marginRight: 7 }} />
-        </Button>
-        <Button type={'secondary'} width={'160px'} height={'56px'}>
-          منو سوپرایز کن
-        </Button>
-      </GenerateContainer>
-      <ImagePlaceholder>
-        <img width={85} height={85} src={ImgIcon} />
-        <span>تصاویر تولید شده در اینجا ظاهر می شوند!</span>
-      </ImagePlaceholder>
-      <div className="w-100 d-flex justify-content-center">
-        <Button width={'170px'} height={'65px'}>
-          دانلود عکس
-          <img src={DownloadIcon} />
-        </Button>
-      </div>
     </Container>
   )
 }
