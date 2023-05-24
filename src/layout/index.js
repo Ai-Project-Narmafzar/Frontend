@@ -14,7 +14,7 @@ const PageLayout = ({ children, match }) => {
   const location = useLocation()
 
   const hasHeader = () => {
-    return !location.pathname.includes('/auth')
+    return !location.pathname.includes('/auth') && location.pathname !== '/'
   }
 
   return (

@@ -14,6 +14,7 @@ import { PrivateRoute } from 'components'
 const Home = lazy(() => import('./pages/Home'))
 const AuthPage = lazy(() => import('./pages/Auth'))
 const Profile = lazy(() => import('./pages/Profile'))
+const OnBoarding = lazy(() => import('./pages/OnBoarding'))
 
 const Routes = () => {
   const dispatch = useDispatch()
@@ -34,7 +35,8 @@ const Routes = () => {
   return (
     <PageLayout>
       <Switch>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<OnBoarding />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/auth/*" element={<AuthPage />} />
         <Route path="/profile/*" element={<Profile />} />
         {/* <Route
