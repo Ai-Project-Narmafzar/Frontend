@@ -4,7 +4,7 @@ import Colors from 'utils/Colors'
 
 export const Container = Styled('header')`
     width:100%;
-    padding: 48px 32px;
+    padding: 32px 34px;
     position: fixed;
     top: 0;
     left: 0;
@@ -13,7 +13,7 @@ export const Container = Styled('header')`
     display: flex;
     justify-content:center;
     z-index:100;
-    background: ${Colors.background};
+    background: ${(props) => props.bgEnable && Colors.background};
     transition: .3s all ease-in-out;
 
     .content {

@@ -71,12 +71,6 @@ const Home = () => {
           <img src={DownloadIcon} />
         </Button>
       </div>
-      <FaqContainer>
-        <h3 className="title">سوالات متداول</h3>
-        {[1, 2, 3, 4].map(() => (
-          <FaqCollapse />
-        ))}
-      </FaqContainer>
     </Container>
   )
 }

@@ -9,8 +9,8 @@ export const Container = Styled('div')`
         display:flex;
         align-items:center;
         font-weight: 400;
-        font-size: 25px;
-        line-height: 25px;
+        font-size: 18px;
+        line-height: 18px;
         color: #FFFFFF;
         background: ${Colors.grey2};
         padding: 20px 24px;
@@ -24,10 +24,10 @@ export const Container = Styled('div')`
     }
 
     .body {
-        margin-top: 24px;
+        margin-top: 32px;
         font-weight: 400;
-        font-size: 25px;
-        line-height: 25px;
+        font-size: 18px;
+        line-height: 18px;
         color: rgba(242, 242, 242, 0.56);
     }
 

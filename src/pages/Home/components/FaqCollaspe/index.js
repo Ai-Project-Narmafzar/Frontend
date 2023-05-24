@@ -16,6 +16,8 @@ const FaqCollapse = ({ question, answer }) => {
         <img
           src={isOpened ? ChevronUpIcon : ChevronDownIcon}
           style={{ marginLeft: 22 }}
+          width={24}
+          height={24}
         />
         {question}
       </div>

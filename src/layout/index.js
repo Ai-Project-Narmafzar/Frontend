@@ -14,14 +14,14 @@ const PageLayout = ({ children, match }) => {
   const location = useLocation()
 
   const hasHeader = () => {
-    return !location.pathname.includes('/auth') && location.pathname !== '/'
+    return !location.pathname.includes('/auth')
   }
 
   return (
     <div className={styles.container}>
       {/* {isLoading && <LoadingOverlay />} */}
       <Suspense fallback={<SplashScreen />}>
-        {hasHeader() && <Header />}
+        {hasHeader() && <Header bgEnable={location.pathname != '/'} />}
         <div className={styles.content}>{children}</div>
       </Suspense>
     </div>

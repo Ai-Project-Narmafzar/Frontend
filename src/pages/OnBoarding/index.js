@@ -9,9 +9,9 @@ const OnBoarding = () => {
     <Container background={OnbardingPic}>
       <div className="content">
         <PageTitle>
-          تصاویر تولید شده توسط هوش مصنوعی را از پایگاه داده{' '}
+        هر تصویری که دوست داریو با کمک {' '}
           <strong>ARTI</strong>
-          GLOW پیدا کنید
+          GLOW خلق کن
         </PageTitle>
         <Button href={'/home'} width={'103px'} height={'40px'}>
           شروع

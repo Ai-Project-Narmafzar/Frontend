@@ -3,7 +3,7 @@ import Styled from 'styled-components'
 import Colors from 'utils/Colors'
 
 export const Container = Styled('main')`
-    padding:217px 32px 95px 32px;
+    padding:144px 32px 95px 32px;
     width:100%;
     max-width:1174px;
     margin: 0 auto;
@@ -31,7 +31,7 @@ export const SearchBarContainer = Styled('div')`
 
     & input {
         flex-grow:1;
-        height: 65px;
+        height: 56px;
         padding: 20px 32px;
         background: ${Colors.grey2};
         border-radius: 18px;
@@ -130,18 +130,5 @@ export const ImagePlaceholder = Styled('div')`
         font-size: 23px;
         line-height: 23px;
         color: rgba(242, 242, 242, 0.56);
-    }
-`
-
-export const FaqContainer = Styled('div')`
-    padding-top: 112px;
-
-    .title {
-        font-weight: 400;
-        font-size: 32px;
-        line-height: 32px;
-        color: #FFFFFF;
-        margin-bottom: 24px;
-        text-align:center;
     }
 `
