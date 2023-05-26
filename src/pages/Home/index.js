@@ -15,6 +15,7 @@ import {
 } from './styles'
 import {
   DownloadIcon,
+  HeartOutlinedWhiteIcon,
   ImgIcon,
   MoreIcon,
   SamplePic,
@@ -39,7 +40,16 @@ const Home = () => {
       <Row gutterWidth={32}>
         {[1, 2, 3, 4, 5, 6, 7, 8, , 1, 2, 3, 4, 5, 6, 7, 8].map(() => (
           <Col xs={6} md={4} lg={3}>
-            <ArtiGlowImg src={SamplePic} />
+            <ArtiGlowImg src={SamplePic}>
+              <div className="content">
+                <h6 className="title">دختر چشم آبی</h6>
+                <span className="name">سارا نامدار</span>
+                <div className="like-con">
+                  <img src={HeartOutlinedWhiteIcon} style={{ marginLeft: 4 }} />
+                  56
+                </div>
+              </div>
+            </ArtiGlowImg>
           </Col>
         ))}
       </Row>

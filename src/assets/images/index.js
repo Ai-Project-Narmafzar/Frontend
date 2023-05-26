@@ -11,6 +11,7 @@ import ChevronUpIcon from './svg/chevron-up.svg'
 import LogoutIcon from './svg/logout.svg'
 import HeartPrimary from './svg/heart_primary.svg'
 import HeartIcon from './svg/heart.svg'
+import HeartOutlinedWhiteIcon from './svg/heart_outlined_white.svg'
 import SettingIcon from './svg/setting.svg'
 import SelectPicIcon from './svg/select_pic.svg'
 import EditIcon from './svg/edit.svg'
@@ -34,5 +35,6 @@ export {
   SelectPicIcon,
   EditIcon,
   SettingPrimary,
-  PenIcon
+  PenIcon,
+  HeartOutlinedWhiteIcon
 }
