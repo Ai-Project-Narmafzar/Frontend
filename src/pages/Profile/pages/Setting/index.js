@@ -12,7 +12,7 @@ import {
   Desc,
 } from './Styles'
 
-const Root = () => {
+const Setting = () => {
   return (
     <Container>
       <FormContainer>
@@ -30,4 +30,4 @@ const Root = () => {
   )
 }
 
-export default Root
+export default Setting

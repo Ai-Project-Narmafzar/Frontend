@@ -1,78 +1,135 @@
 import Styled from 'styled-components'
 import Colors from 'utils/Colors'
 
-export const Container = Styled('main')`
+export const Container = Styled('div')`
     width:100%;
+    max-width: 1176px;
+    margin: 0 auto;
     height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-`
 
-export const FormContainer = Styled('div')`
-    width:100%;
-    max-width:370px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    .name-title {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 15px;
+        color: #FFFFFF;
+        margin-bottom: 24px;
+        text-align: center;
+    }
 
-    .form-label {
+    .tabs-con {
+        margin: 0 auto;
+        max-width:570px;
+        display:flex;
+        justify-content: space-between;
+        align-items:center;
+        margin-bottom: 46px;
+    }
+
+    .info-col {
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .info-col h6 {
         font-weight: 400;
         font-size: 18px;
         line-height: 18px;
         color: #FFFFFF;
-        margin-bottom: 24px;
-        display: block;
-    }
-`
-export const Title = Styled('h2')`
-    font-weight: 400;
-    font-size: 19px;
-    line-height: 19px;
-    color: ${Colors.text};
-    margin-bottom:16px;
-`
-
-export const Desc = Styled('p')`
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 18px;
-    color: ${Colors.box};
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin-bottom:56px;
-`
-
-export const ActionLink = Styled('a')`
-    width:100%;
-    display:block;
-    text-align:right;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 14px;
-    color: ${Colors.text2};
-
-    & strong {
-        color: ${Colors.text};
-    }
-`
-
-export const ORSection = Styled('div')`
-    width:100%;
-    display:flex;
-    align-items:center;
-    margin-bottom:40px;
-    
-    & div {
-        flex-grow:1;
-        height:1px;
-        background:white;
+        margin-bottom:24px;
     }
 
-    & span {
+    .info-col span {
         font-weight: 400;
-        font-size: 20px;
-        line-height: 20px;
+        font-size: 18px;
+        line-height: 18px;
         color: #FFFFFF;
-        margin: 0 9px;
+    }
+
+    .tab {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 15px;
+        color: #FFFFFF;
+        display: flex;
+        align-items:center;
+        padding: 14px 8px 11px 9px;
+    }
+
+    .tab.active {
+        background: ${Colors.grey2};
+        border-radius: 8px;
+    }
+`
+
+export const Divider = Styled('div')`
+    width: ${(props) => props.width};
+    height: 1px;
+    background: white;
+    margin: 0 auto;
+`
+
+
+export const ArtiGlowImg = Styled('div')`
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    overflow:hidden;
+    position: relative;
+    background: ${(props) => {
+      return `url(${props.src})`
+    }};
+    background-size: cover;
+
+    & .content {
+        opacity: 0;
+        position: absolute;
+        background: rgba(7, 7, 7, 0.66);
+        box-shadow: 9px 9px 6px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+        transition: .3s all ease-in-out;
+        width: 100%;
+        height: 100%;
+    } 
+
+    & .title {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 18px;
+        color: #FFFFFF;
+        position: absolute;
+        bottom: 37%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    & .name {
+        position: absolute;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 12px;
+        color: white;
+        bottom: 6%;
+        left:  16%;
+    }
+
+    & .like-con {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 12px;
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        right: 7%;
+        top: 6%;
+        position: absolute;
+    }
+
+    &:hover .content {
+        opacity: 1;
     }
 `
