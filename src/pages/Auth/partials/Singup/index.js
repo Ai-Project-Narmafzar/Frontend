@@ -10,7 +10,7 @@ const Signup = () => {
     <FormContainer>
       <Title>اکانت خود را بسازید</Title>
       <div style={{ width: '100%', marginBottom: 40 }}>
-        <Button type={'secondary'}>
+        <Button type={'secondary'} height={'56px'}>
           <img src={GoogleIcon} />
           ادامه با اکانت گوگل
         </Button>

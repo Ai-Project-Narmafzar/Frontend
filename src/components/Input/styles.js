@@ -3,6 +3,7 @@ import Colors from 'utils/Colors'
 
 export const CustomInput = Styled('input')`
     width:100%;
+    height: 56px;
     position:relative;
     padding:15px 24px;
     background: ${Colors.grey2};

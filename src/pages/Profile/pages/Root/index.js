@@ -1,25 +1,31 @@
 import React from 'react'
-import { Container, MoreCollection, NoMedia, Title } from './Styles'
+import { Button, Input } from 'components'
 
-import { EditIcon, SelectPicIcon } from 'assets/images'
-import { Button } from 'components'
+import { GoogleIcon } from 'assets/images'
+
+import {
+  ActionLink,
+  FormContainer,
+  ORSection,
+  Title,
+  Container,
+  Desc,
+} from './Styles'
 
 const Root = () => {
   return (
     <Container>
-      <Title>کالکشن من</Title>
-      <MoreCollection>
-        اینجا میتونی عکس های مورد علاقت رو دانلود بکنی.
-        <strong>دانلود همه</strong>
-      </MoreCollection>
-      <NoMedia>
-        <img src={SelectPicIcon} />
-        <span>هنوز عکسی ذخیره نشده</span>
-        <Button width={'170px'} height={'59px'} style={{ borderRadius: 18 }}>
-          ساخت عکس
-          <img src={EditIcon} style={{ marginRight: 5 }} />
+      <FormContainer>
+        <Title>تنظیمات</Title>
+        <Desc>اینجا میتونی جزیات پروفایلت رو تغییر بدی</Desc>
+        <div style={{ width: '100%', marginBottom: 16 }}>
+          <span className='form-label'>ایمیل</span>
+          <Input placeholder="mohadesemohamadzade@gmail.com" />
+        </div>
+        <Button width={'84px'} height={'40px'}>
+          ورود
         </Button>
-      </NoMedia>
+      </FormContainer>
     </Container>
   )
 }

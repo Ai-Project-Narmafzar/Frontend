@@ -10,7 +10,7 @@ const Login = () => {
     <FormContainer>
       <Title>دوباره خوش آمدید!</Title>
       <div style={{ width: '100%', marginBottom: 40 }}>
-        <Button type={'secondary'}>
+        <Button type={'secondary'} height={'56px'}>
           <img src={GoogleIcon} />
           ادامه با اکانت گوگل
         </Button>
@@ -21,16 +21,16 @@ const Login = () => {
         <div></div>
       </ORSection>
       <div style={{ width: '100%', marginBottom: 16 }}>
-        <Input placeholder="ایمیل" />
+        <Input placeholder="ایمیل" height={'56px'}/>
       </div>
       <div style={{ width: '100%' }}>
-        <Input placeholder="رمز" />
+        <Input placeholder="رمز" height={'56px'}/>
       </div>
       <div style={{ margin: '8px 0 24px 0', width: '100%' }}>
         <ActionLink href="#">رمز عبور را فراموش کردید؟</ActionLink>
       </div>
       <div style={{ width: '100%' }}>
-        <Button>ورود</Button>
+        <Button height={'56px'}>ورود</Button>
       </div>
       <div style={{ marginTop: 8, width: '100%' }}>
         <ActionLink href="/auth/signup">

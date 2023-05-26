@@ -1,31 +1,33 @@
-import { Button, Input } from 'components'
 import React from 'react'
+import { Button, Input } from 'components'
+
+import { GoogleIcon } from 'assets/images'
+
 import {
-  Container,
+  ActionLink,
   FormContainer,
-  FormField,
-  MoreCollection,
+  ORSection,
   Title,
+  Container,
+  Desc,
 } from './Styles'
 
-const Setting = () => {
+const Root = () => {
   return (
     <Container>
-      <Title>تنظیمات</Title>
-      <MoreCollection>اینجا میتونی جزییات پروفایلتو تغییر بدی</MoreCollection>
       <FormContainer>
-        <FormField style={{ marginBottom: 40 }}>
-          <h4 className="title">نام کاربری</h4>
-          <Input value={'سروش زمزم'} />
-        </FormField>
-        <FormField style={{ marginBottom: 24 }}>
-          <h4 className="title">ایمیل</h4>
-          <Input value={'sorosh@gmail.co,'} />
-        </FormField>
-        <Button  width={'100px'} height={'55px'}>ذخیره</Button>
+        <Title>تنظیمات</Title>
+        <Desc>اینجا میتونی جزیات پروفایلت رو تغییر بدی</Desc>
+        <div style={{ width: '100%', marginBottom: 16 }}>
+          <span className='form-label'>ایمیل</span>
+          <Input placeholder="mohadesemohamadzade@gmail.com" />
+        </div>
+        <Button width={'84px'} height={'40px'}>
+          ورود
+        </Button>
       </FormContainer>
     </Container>
   )
 }
 
-export default Setting
+export default Root
