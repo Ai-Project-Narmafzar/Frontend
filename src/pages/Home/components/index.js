@@ -1,3 +1,4 @@
 import FaqCollapse from './FaqCollaspe'
+import PostModal from './PostModal'
 
-export { FaqCollapse }
+export { FaqCollapse, PostModal }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from 'components'
 import { Col, Row } from 'react-grid-system'
 
@@ -21,11 +21,14 @@ import {
   SamplePic,
   SearchIcon,
 } from 'assets/images'
-import { FaqCollapse } from './components'
+import { FaqCollapse, PostModal } from './components'
 
 const Home = () => {
+  const [postModal, setPostModal] = useState(true)
+
   return (
     <Container>
+      <PostModal isOpen={postModal} setIsOpen={setPostModal} />
       <PageTitle>
         تصاویر تولید شده توسط هوش مصنوعی را از پایگاه داده <strong>ARTI</strong>
         GLOW پیدا کنید
