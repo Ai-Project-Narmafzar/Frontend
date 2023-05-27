@@ -24,7 +24,7 @@ import {
 import { FaqCollapse, PostModal } from './components'
 
 const Home = () => {
-  const [postModal, setPostModal] = useState(true)
+  const [postModal, setPostModal] = useState(false)
 
   return (
     <Container>
@@ -43,7 +43,7 @@ const Home = () => {
       <Row gutterWidth={32}>
         {[1, 2, 3, 4, 5, 6, 7, 8, , 1, 2, 3, 4, 5, 6, 7, 8].map(() => (
           <Col xs={6} md={4} lg={3}>
-            <ArtiGlowImg src={SamplePic}>
+            <ArtiGlowImg src={SamplePic} onClick={() => setPostModal(true)}>
               <div className="content">
                 <h6 className="title">دختر چشم آبی</h6>
                 <span className="name">سارا نامدار</span>

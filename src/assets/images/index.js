@@ -1,6 +1,7 @@
 import GoogleIcon from './png/google-icon.png'
 import Logo from './png/logo.png'
 import SamplePic from './png/sample-pic.png'
+import SampleAvatar from './png/sample-avatar.png'
 
 import SearchIcon from './svg/search.svg'
 import MoreIcon from './svg/more.svg'
@@ -17,6 +18,8 @@ import SelectPicIcon from './svg/select_pic.svg'
 import EditIcon from './svg/edit.svg'
 import SettingPrimary from './svg/setting_primary.svg'
 import PenIcon from './svg/pen.svg'
+import CloseIcon from './svg/close.svg'
+import PlusIcon from './svg/plus.svg'
 
 export {
   GoogleIcon,
@@ -36,5 +39,8 @@ export {
   EditIcon,
   SettingPrimary,
   PenIcon,
-  HeartOutlinedWhiteIcon
+  HeartOutlinedWhiteIcon,
+  CloseIcon,
+  PlusIcon,
+  SampleAvatar
 }
