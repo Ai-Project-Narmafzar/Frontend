@@ -7,4 +7,5 @@ export default {
   background: '#20262E',
   text: 'white',
   text2: '#BBBBBB',
+  danger: '#E95050'
 }

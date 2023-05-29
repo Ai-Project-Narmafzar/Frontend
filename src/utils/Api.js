@@ -42,15 +42,6 @@ Api.interceptors.request.use(
       config.headers[`Accept-Language`] = 'fa'
     }
 
-    config.params = config.params ? config.params : {}
-    // add coordinates user for fetching location specific data
-    const coordinates = store.getState().common.tempAdress || {
-      latitude: 51.41,
-      longitude: 35.72,
-    }
-    config.params['latitude'] = coordinates.latitude
-    config.params['longitude'] = coordinates.longitude
-
     return config
   },
   (error) => {

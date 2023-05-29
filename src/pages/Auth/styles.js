@@ -7,6 +7,13 @@ export const Container = Styled('main')`
     display:flex;
     justify-content:center;
     align-items:center;
+
+    .form-error {
+        font-size: 14px;
+        color: ${Colors.danger};
+        display: block;
+        margin: 8px 0;
+    }
 `
 
 export const FormContainer = Styled('div')`

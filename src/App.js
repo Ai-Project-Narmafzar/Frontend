@@ -18,6 +18,8 @@ import Routes from './Routes'
 import { setUpInterceptorStore } from 'utils/Api'
 import { SplashScreen } from 'components'
 
+import { IconlyProvider } from 'react-iconly'
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: { retry: false, refetchOnWindowFocus: false },
@@ -43,7 +45,9 @@ const App = () => {
             <QueryClientProvider client={queryClient}>
               {/* Authentication Logic Provider */}
               <AuthProvider>
-                <Routes />
+                <IconlyProvider primaryColor="white">
+                  <Routes />
+                </IconlyProvider>
               </AuthProvider>
             </QueryClientProvider>
           </SkeletonTheme>

@@ -1,6 +1,23 @@
 import Styled from 'styled-components'
 import Colors from 'utils/Colors'
 
+export const Container = Styled('div')`
+    width:100%;
+    height: 56px;
+    position: relative;
+
+    .sc-icon {
+        position: absolute;
+        left: 12px;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+    }
+`
+
 export const CustomInput = Styled('input')`
     width:100%;
     height: 56px;

@@ -26,9 +26,9 @@ const Login = () => {
       <div style={{ width: '100%' }}>
         <Input placeholder="رمز" height={'56px'}/>
       </div>
-      <div style={{ margin: '8px 0 24px 0', width: '100%' }}>
+      {/* <div style={{ margin: '8px 0 24px 0', width: '100%' }}>
         <ActionLink href="#">رمز عبور را فراموش کردید؟</ActionLink>
-      </div>
+      </div> */}
       <div style={{ width: '100%' }}>
         <Button height={'56px'}>ورود</Button>
       </div>
