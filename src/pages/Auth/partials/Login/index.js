@@ -21,8 +21,8 @@ const initialValues = {
 }
 
 const validationSchema = Yup.object({
-  email: Yup.string()
-    .email('لطفا یک ایمیل معتبر وارد نمایید')
+  username: Yup.string()
+    .min(5, 'رمزعبور باید حداقل 5 کاراکتر باشد')
     .required('این فیلد الزامی است'),
   password: Yup.string()
     .required('این فیلد الزامی است')
@@ -64,12 +64,12 @@ const Login = () => {
       <Title>دوباره خوش آمدید!</Title>
       <div style={{ width: '100%', marginBottom: 16 }}>
         <Input
-          placeholder="ایمیل"
-          onChange={(e) => formik.setFieldValue('email', e.target.value)}
-          onBlur={() => formik.setFieldTouched('email', true)}
+          placeholder="نام کاربری"
+          onChange={(e) => formik.setFieldValue('username', e.target.value)}
+          onBlur={() => formik.setFieldTouched('username', true)}
         />
-        {formik.touched.email && formik.errors.email ? (
-          <span className="form-error">{formik.errors.email}</span>
+        {formik.touched.username && formik.errors.username ? (
+          <span className="form-error">{formik.errors.username}</span>
         ) : null}
       </div>
       <div style={{ width: '100%', marginBottom: 16 }}>
