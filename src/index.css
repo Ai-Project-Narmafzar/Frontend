@@ -1,7 +1,4 @@
-@font-face {
-  font-family: Yekan;
-  src: url(/src/assets/fonts/Yekan.ttf);
-}
+@import url(/src/assets/fonts/Yekan/css/fontiran.css);
 
 * {
   margin: 0;
@@ -22,7 +19,7 @@ h5,
 h6,
 input,
 textarea {
-  font-family: Yekan !important;
+  font-family: iranyekan !important;
 }
 
 body,
@@ -30,7 +27,7 @@ html {
   width: 100%;
   height: 100%;
   background-color: #20262e !important;
-  font-family: Yekan !important;
+  font-family: iranyekan !important;
   -moz-font-feature-settings: "ss02";
   -webkit-font-feature-settings: "ss02";
   font-feature-settings: "ss02";

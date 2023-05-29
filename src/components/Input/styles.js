@@ -26,7 +26,7 @@ export const CustomInput = Styled('input')`
     background: ${Colors.grey2};
     border-radius: 12px;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 18px;
     color: #FFFFFF;
     border: none;

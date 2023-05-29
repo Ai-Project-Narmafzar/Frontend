@@ -8,6 +8,11 @@ import AuthService from 'services/Auth'
 
 import { ActionLink, FormContainer, ORSection, Title } from '../../styles'
 
+import { toast } from 'react-toastify'
+import { useDispatch } from 'react-redux'
+
+import { actions as authActions } from 'store/authRedux/actions'
+
 const initialValues = {
   username: undefined,
   email: undefined,
@@ -36,6 +41,8 @@ const validationSchema = Yup.object({
 const Signup = () => {
   const { Register } = AuthService()
 
+  const dispatch = useDispatch()
+
   const [loading, setLoading] = useState(false)
 
   const signUpUser = (values) => {
@@ -43,11 +50,17 @@ const Signup = () => {
     Register(values)
       .then((result) => {
         setLoading(false)
-        console.log(result)
+        dispatch(authActions.login(result))
+        toast.success('ثبت نام با موفقیت انجام شد')
       })
       .catch((err) => {
-        console.log(err)
         setLoading(false)
+        if (err.response.data.username) {
+          toast.error('کاربر با این نام کاربری قبلا ثبت نام کرده است')
+        }
+        if (err.response.data.email) {
+          toast.error('کاربر با این ایمیل قبلا ثبت نام کرده است')
+        }
       })
   }
 
@@ -113,7 +126,7 @@ const Signup = () => {
         </Button>
       </div>
       <div style={{ marginTop: 8, width: '100%' }}>
-        <ActionLink href="/auth/signup">
+        <ActionLink href="/auth/login">
           حساب کاربری دارید؟ <strong>ورود به حساب کاربری</strong>
         </ActionLink>
       </div>

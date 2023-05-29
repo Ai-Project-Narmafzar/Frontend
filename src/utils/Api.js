@@ -34,7 +34,7 @@ const Api = axios.create({
 // API Request interceptor
 Api.interceptors.request.use(
   (config) => {
-    const access_token = store.getState().auth.access
+    const access_token = store.getState().auth.token
 
     // add access token to headers if exists
     if (access_token) {

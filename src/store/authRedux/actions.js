@@ -6,9 +6,9 @@ export const actionTypes = {
 }
 
 export const actions = {
-  login: (access, refresh, user) => ({
+  login: ({ token, user }) => ({
     type: actionTypes.Login,
-    payload: { access, refresh, user },
+    payload: { token, user },
   }),
   refresh: (access) => ({
     type: actionTypes.RefreshUser,

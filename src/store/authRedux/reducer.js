@@ -4,8 +4,7 @@ import { actionTypes, actions } from './actions'
 
 const initialAuthState = {
   user: undefined,
-  access: undefined,
-  refresh: undefined,
+  token: undefined,
 }
 
 export const reducer = persistReducer(
@@ -13,9 +12,9 @@ export const reducer = persistReducer(
   (state = initialAuthState, action) => {
     switch (action.type) {
       case actionTypes.Login: {
-        const { access, refresh, user } = action.payload
+        const { token, user } = action.payload
 
-        return { access, refresh, user }
+        return { token, user }
       }
 
       case actionTypes.Logout: {
