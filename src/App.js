@@ -6,8 +6,6 @@ import { BrowserRouter } from 'react-router-dom'
 import store, { persistor } from 'store'
 import { PersistGate } from 'redux-persist/integration/react'
 
-import { AuthProvider } from 'providers'
-
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 
 import { SkeletonTheme } from 'react-loading-skeleton'
@@ -43,12 +41,9 @@ const App = () => {
             <ToastContainer position="top-center" rtl={true} autoClose={3000} />
             {/* Query Client Provider */}
             <QueryClientProvider client={queryClient}>
-              {/* Authentication Logic Provider */}
-              <AuthProvider>
-                <IconlyProvider primaryColor="white">
-                  <Routes />
-                </IconlyProvider>
-              </AuthProvider>
+              <IconlyProvider primaryColor="white">
+                <Routes />
+              </IconlyProvider>
             </QueryClientProvider>
           </SkeletonTheme>
         </BrowserRouter>

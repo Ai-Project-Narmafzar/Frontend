@@ -1,5 +1,5 @@
 import React, { lazy, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import {
   Routes as Switch,
@@ -22,6 +22,8 @@ const Routes = () => {
   const dispatch = useDispatch()
   const location = useLocation()
 
+  const isAuthorized = useSelector(({ auth }) => auth.token)
+
   useEffect(() => {
     setTimeout(() => {
       const body = document.querySelector('#root')
@@ -37,21 +39,21 @@ const Routes = () => {
   return (
     <PageLayout>
       <Switch>
-        <Route path="/" element={<OnBoarding />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/create" element={<Create />} />
-        <Route path="/auth/*" element={<AuthPage />} />
-        <Route path="/profile/*" element={<Profile />} />
-        {/* <Route
-            path="/profile/*"
-            element={
-              <PrivateRoute>
-                <Profile />
-              </PrivateRoute>
-            }
-          /> */}
-        <Route path="*" element={<Navigate to={'/auth'} replace />} />
+        {isAuthorized ? (
+          <>
+            <Route path="/" element={<OnBoarding />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/create" element={<Create />} />
+            <Route path="/profile/*" element={<Profile />} />
+            <Route path="*" element={<Navigate to={'/'} replace />} />
+          </>
+        ) : (
+          <>
+            <Route path="/auth/*" element={<AuthPage />} />
+            <Route path="*" element={<Navigate to={'/auth'} replace />} />
+          </>
+        )}
       </Switch>
     </PageLayout>
   )

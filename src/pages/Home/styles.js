@@ -82,7 +82,7 @@ export const ArtiGlowImg = Styled('div')`
         line-height: 18px;
         color: #FFFFFF;
         position: absolute;
-        bottom: 37%;
+        bottom: calc(50% - 18px);
         left: 0;
         right: 0;
         margin: 0 auto;
@@ -96,7 +96,7 @@ export const ArtiGlowImg = Styled('div')`
         line-height: 12px;
         color: white;
         bottom: 6%;
-        left:  16%;
+        left:  7%;
     }
 
     & .like-con {
