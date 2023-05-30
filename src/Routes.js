@@ -46,11 +46,13 @@ const Routes = () => {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/create" element={<Create />} />
             <Route path="/profile/*" element={<Profile />} />
-            <Route path="*" element={<Navigate to={'/'} replace />} />
+            <Route path="*" element={<Navigate to={'/home'} replace />} />
           </>
         ) : (
           <>
             <Route path="/auth/*" element={<AuthPage />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/faq" element={<FAQ />} />
             <Route path="*" element={<Navigate to={'/auth'} replace />} />
           </>
         )}

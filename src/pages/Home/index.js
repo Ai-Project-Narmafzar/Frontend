@@ -1,42 +1,37 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from 'components'
 import { Col, Row } from 'react-grid-system'
 import { useQuery } from '@tanstack/react-query'
 
 import {
-  ArtiGlowImg,
   Container,
   GenerateTitle,
   MoreLink,
   PageTitle,
   SearchBarContainer,
-  GenerateContainer,
-  ImagePlaceholder,
-  FaqContainer,
 } from './styles'
-import {
-  DownloadIcon,
-  HeartOutlinedWhiteIcon,
-  ImgIcon,
-  MoreIcon,
-  SamplePic,
-  SearchIcon,
-} from 'assets/images'
-import { FaqCollapse, PostModal } from './components'
+import { MoreIcon, SamplePic, SearchIcon } from 'assets/images'
+import { ArtiGlowImg, FaqCollapse, PostModal } from './components'
 import PostService from 'services/Post'
-import { Heart } from 'react-iconly'
 import Skeleton from 'react-loading-skeleton'
-import { toBeRequired } from '@testing-library/jest-dom/dist/matchers'
+import { useSearchDebounce } from 'hooks/useSearchDebounce'
+import { Search } from 'react-iconly'
 
 const Home = () => {
   const [postModal, setPostModal] = useState(false)
+  const [search, setSearch] = useSearchDebounce()
 
   const { GetPosts } = PostService()
 
   const { data: posts, isFetching, refetch } = useQuery({
     queryKey: ['[List] posts'],
-    queryFn: () => GetPosts().then((result) => result),
+    queryFn: () => GetPosts({ search }).then((result) => result),
+    enabled: false,
   })
+
+  useEffect(() => {
+    refetch()
+  }, [search])
 
   return (
     <Container>
@@ -46,29 +41,28 @@ const Home = () => {
         GLOW پیدا کنید
       </PageTitle>
       <SearchBarContainer>
-        <input type={'text'} placeholder="تصویر دختر ایرانی در فضا..." />
-        <Button width={'160px'} height={'56px'}>
+        <input
+          id="search-inp"
+          type={'text'}
+          placeholder="تصویر دختر ایرانی در فضا..."
+        />
+        <Button
+          width={'160px'}
+          height={'56px'}
+          onClick={() => setSearch(document.querySelector('#search-inp').value)}
+        >
           جست و جو
-          <img src={SearchIcon} style={{ marginRight: 7 }} />
+          <Search style={{ marginRight: 7 }} />
         </Button>
       </SearchBarContainer>
       <Row gutterWidth={32}>
         {!isFetching && posts
-          ? posts.map(({ id, image, description, owner, likes_count }) => (
+          ? posts.map((post) => (
               <Col xs={6} md={4} lg={3}>
                 <ArtiGlowImg
-                  src={image}
-                  onClick={() => setPostModal({ show: true, data: id })}
-                >
-                  <div className="content">
-                    <h6 className="title">{description}</h6>
-                    <span className="name">{owner.username}</span>
-                    <div className="like-con">
-                      <Heart style={{ marginLeft: 4 }} />
-                      {likes_count}
-                    </div>
-                  </div>
-                </ArtiGlowImg>
+                  {...post}
+                  setPostModal={setPostModal}
+                ></ArtiGlowImg>
               </Col>
             ))
           : [1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => (

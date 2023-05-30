@@ -4,6 +4,7 @@ import qs from 'qs'
 import { actions } from 'store/authRedux/actions'
 
 import { toast } from 'react-toastify'
+import history from './history'
 
 let store
 
@@ -14,8 +15,9 @@ export const setUpInterceptorStore = (_store) => {
 
 // logout user from server and local store
 const logoutUser = (refreshToken) => {
-//   LogoutBlacklist(refreshToken)
+  //   LogoutBlacklist(refreshToken)
   store.dispatch(actions.logout())
+  history.push('/auth')
 }
 
 // create axios instance
@@ -38,7 +40,7 @@ Api.interceptors.request.use(
 
     // add access token to headers if exists
     if (access_token) {
-      config.headers['Authorization'] = `Bearer ${access_token}`
+      config.headers['Authorization'] = `token ${access_token}`
       config.headers[`Accept-Language`] = 'fa'
     }
 
@@ -62,6 +64,7 @@ Api.interceptors.response.use(
 
     // handle 401 error
     else if (error.response.status === 401) {
+      logoutUser()
     }
 
     // handle 404 error
