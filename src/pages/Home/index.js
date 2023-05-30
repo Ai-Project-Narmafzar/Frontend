@@ -18,7 +18,7 @@ import { useSearchDebounce } from 'hooks/useSearchDebounce'
 import { Search } from 'react-iconly'
 
 const Home = () => {
-  const [postModal, setPostModal] = useState(false)
+  const [postModal, setPostModal] = useState({show: false, data: undefined})
   const [search, setSearch] = useSearchDebounce()
 
   const { GetPosts } = PostService()
@@ -35,7 +35,7 @@ const Home = () => {
 
   return (
     <Container>
-      <PostModal isOpen={postModal} setIsOpen={setPostModal} />
+      <PostModal isOpen={postModal.show} id={postModal.data} setIsOpen={setPostModal} />
       <PageTitle>
         تصاویر تولید شده توسط هوش مصنوعی را از پایگاه داده <strong>ARTI</strong>
         GLOW پیدا کنید
