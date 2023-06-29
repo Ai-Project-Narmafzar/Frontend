@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import {
   GoogleIcon,
@@ -10,13 +10,29 @@ import {
 import { Container, Desc, Divider } from './Styles'
 import { Col, Row } from 'react-grid-system'
 import { ArtiGlowImg } from 'pages/Home/styles'
+import AuthService from 'services/Auth'
+import { actions as authActions } from 'store/authRedux/actions'
 
 import { Button } from 'components'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Root = () => {
+  const user = useSelector(({ auth }) => auth.user)
+
+  const dispatch = useDispatch()
+
+  const { GetUserProfile } = AuthService()
+
+  useEffect(() => {
+    GetUserProfile(user.id)
+      .then((result) => {
+        dispatch(authActions.setUser(result))
+      })
+      .catch((err) => {})
+  }, [user])
   return (
     <Container>
-      <h4 className="name-title">محدثه محمدزاده</h4>
+      <h4 className="name-title">{user.username}</h4>
       <Divider width={'368px'} style={{ marginBottom: 27 }}></Divider>
       <div className="tabs-con" style={{ maxWidth: 398, marginBottom: 20 }}>
         <div className="info-col">

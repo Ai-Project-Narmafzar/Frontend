@@ -3,6 +3,7 @@ import Api from 'utils/Api'
 
 const SIGNUP_USER_URL = `/auth/register/`
 const LOGIN_USER_URL = `/auth/login/`
+const GET_USER_PROFILE = (id) => `/profile/${id}`
 
 const AuthService = () => {
   const Register = (data) => {
@@ -13,7 +14,11 @@ const AuthService = () => {
     return Api.post(LOGIN_USER_URL, data)
   }
 
-  return { Register, Login }
+  const GetUserProfile = (id) => {
+    return Api.get(GET_USER_PROFILE(id))
+  }
+
+  return { Register, Login, GetUserProfile }
 }
 
 export default AuthService

@@ -7,8 +7,10 @@ const GET_SINGLE_POST_URL = (id) => `/posts/${id}/`
 const GET_POST_COMMNENTS_URL = (id) => `/posts/${id}/comments/`
 
 const PostService = () => {
-  const GetPosts = (data) => {
-    return Api.get(GET_POSTS_URL, data)
+  const GetPosts = (params) => {
+    return Api.get(GET_POSTS_URL, {
+      params: { ...params, remove_token: true },
+    })
   }
 
   const ToggleLikePost = (id) => {

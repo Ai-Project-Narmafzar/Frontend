@@ -22,7 +22,7 @@ const initialValues = {
 
 const validationSchema = Yup.object({
   username: Yup.string()
-    .min(5, 'رمزعبور باید حداقل 5 کاراکتر باشد')
+    .email('لطفا یک ایمیل معتبر وارد نمایید')
     .required('این فیلد الزامی است'),
   password: Yup.string()
     .required('این فیلد الزامی است')
@@ -64,7 +64,7 @@ const Login = () => {
       <Title>دوباره خوش آمدید!</Title>
       <div style={{ width: '100%', marginBottom: 16 }}>
         <Input
-          placeholder="نام کاربری"
+          placeholder="ایمیل"
           onChange={(e) => formik.setFieldValue('username', e.target.value)}
           onBlur={() => formik.setFieldTouched('username', true)}
         />

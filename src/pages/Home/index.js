@@ -44,6 +44,7 @@ const Home = () => {
         <input
           id="search-inp"
           type={'text'}
+          onChange={(e) => setSearch(e.target.value)}
           placeholder="تصویر دختر ایرانی در فضا..."
         />
         <Button

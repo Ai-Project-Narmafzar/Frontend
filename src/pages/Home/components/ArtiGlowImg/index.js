@@ -36,7 +36,6 @@ const ArtiGlowImg = ({
       })
   }
 
-
   return (
     <Container
       src={image}
@@ -49,17 +48,17 @@ const ArtiGlowImg = ({
           {loading ? (
             <ClipLoader color="white" size={20} />
           ) : (
-            isAuthorized && (
-              <Heart
-                style={{ marginLeft: 4 }}
-                filled={liked}
-                primaryColor={liked ? Colors.primary : 'white'}
-                onClick={(e) => {
+            <Heart
+              style={{ marginLeft: 4 }}
+              filled={liked}
+              primaryColor={liked ? Colors.primary : 'white'}
+              onClick={(e) => {
+                if (isAuthorized) {
                   e.stopPropagation()
                   toggleLike()
-                }}
-              />
-            )
+                }
+              }}
+            />
           )}
           {likesCount}
         </div>

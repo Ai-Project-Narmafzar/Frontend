@@ -4,12 +4,15 @@ import { Link, useLocation } from 'react-router-dom'
 
 import { Logo } from 'assets/images'
 import Colors from 'utils/Colors'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
   const NavbarRef = useRef()
   const location = useLocation()
 
   const [scrolled, setScrolled] = useState(false)
+
+  const user = useSelector(({ auth }) => auth.user)
 
   useEffect(() => {
     const handleScroll = (event) => {
@@ -40,7 +43,7 @@ const Header = () => {
           <img width={126} src={Logo} style={{ marginLeft: 40 }} />
           {location.pathname != '/' && (
             <>
-              <Link to={'#'}>
+              <Link to={'/home'}>
                 <NavItem>اکسپلور</NavItem>
               </Link>
               <Link to={'/create'}>
@@ -52,7 +55,11 @@ const Header = () => {
             </>
           )}
         </ItemsContainer>
-        <LoginLink to={'/auth/login'}>ورود/ثبت نام</LoginLink>
+        {user ? (
+            <LoginLink to={'/profile'}>{user.username}</LoginLink>
+        ) : (
+          <LoginLink to={'/auth/login'}>ورود/ثبت نام</LoginLink>
+        )}
       </div>
     </Container>
   )

@@ -50,10 +50,11 @@ const Routes = () => {
           </>
         ) : (
           <>
+            <Route path="/" element={<OnBoarding />} />
             <Route path="/auth/*" element={<AuthPage />} />
             <Route path="/home" element={<Home />} />
             <Route path="/faq" element={<FAQ />} />
-            <Route path="*" element={<Navigate to={'/auth'} replace />} />
+            <Route path="*" element={<Navigate to={'/'} replace />} />
           </>
         )}
       </Switch>
