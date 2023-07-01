@@ -10,7 +10,7 @@ import {
   PageTitle,
   SearchBarContainer,
 } from './styles'
-import { MoreIcon, SamplePic, SearchIcon } from 'assets/images'
+import { MoreIcon, } from 'assets/images'
 import { ArtiGlowImg, FaqCollapse, PostModal } from './components'
 import PostService from 'services/Post'
 import Skeleton from 'react-loading-skeleton'

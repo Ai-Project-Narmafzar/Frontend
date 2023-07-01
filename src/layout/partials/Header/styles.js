@@ -19,6 +19,40 @@ export const Container = Styled('header')`
     .content {
         max-width: 1512px;
     }
+
+    .profile-row {
+        display:flex;
+        align-items:center;
+        position: relative;
+    }
+
+    .profile-row span{
+        margin-left:8px;
+        color: white;
+    }
+
+    .menu {
+        position: absolute;
+        width: 206px;
+        height: 348px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: #3F4C5D;
+        box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        left: 0;
+        top: 56px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .menu-item {
+        display: flex;
+        align-items:center;
+        color: white;
+        margin-bottom: 24px;
+    }
 `
 
 export const LoginLink = Styled(Link)`

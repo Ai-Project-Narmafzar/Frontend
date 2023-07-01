@@ -77,7 +77,7 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
                     <img src={PlusIcon} />
                   </Button>
                   <h6 className="name">{post?.owner?.username}</h6>
-                  <img className="avatar" src={SampleAvatar} />
+                  <img className="avatar" src={post.owner.avatar ? post.owner.avatar : SampleAvatar} />
                 </div>
               </div>
               <div className="content d-flex flex-column flex-grow-1">

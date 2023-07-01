@@ -14,8 +14,8 @@ const AuthService = () => {
     return Api.post(LOGIN_USER_URL, data)
   }
 
-  const GetUserProfile = (id) => {
-    return Api.get(GET_USER_PROFILE(id))
+  const GetUserProfile = (id, params) => {
+    return Api.get(GET_USER_PROFILE(id), { params })
   }
 
   return { Register, Login, GetUserProfile }

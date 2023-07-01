@@ -25,7 +25,11 @@ const PostService = () => {
     return Api.get(GET_POST_COMMNENTS_URL(id))
   }
 
-  return { GetPosts, ToggleLikePost, GetSinglePost, GetPostComments }
+  const GeneratePost = (data) => {
+    return Api.post(GET_POSTS_URL, data)
+  }
+
+  return { GetPosts, ToggleLikePost, GetSinglePost, GetPostComments, GeneratePost }
 }
 
 export default PostService

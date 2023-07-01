@@ -56,7 +56,10 @@ export const ImagePlaceholder = Styled('div')`
     flex-direction: column;
     align-items:center;
     justify-content:center;
-    background: ${Colors.grey2};
+    background: ${(props) => (props.src ? `url(${props.src})` : Colors.grey2)};
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
     border-radius: 18px;
     margin-bottom: 32px;
 
