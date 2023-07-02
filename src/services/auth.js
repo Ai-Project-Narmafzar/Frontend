@@ -4,6 +4,7 @@ import Api from 'utils/Api'
 const SIGNUP_USER_URL = `/auth/register/`
 const LOGIN_USER_URL = `/auth/login/`
 const GET_USER_PROFILE = (id) => `/profile/${id}`
+const UPDATE_PROFILE_URL = (id) => `/profile/`
 
 const AuthService = () => {
   const Register = (data) => {
@@ -18,7 +19,15 @@ const AuthService = () => {
     return Api.get(GET_USER_PROFILE(id), { params })
   }
 
-  return { Register, Login, GetUserProfile }
+  const UpdateUserProfile = (data) => {
+    return Api.patch(UPDATE_PROFILE_URL(), data, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+  }
+
+  return { Register, Login, GetUserProfile, UpdateUserProfile }
 }
 
 export default AuthService

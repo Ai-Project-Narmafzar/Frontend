@@ -7,9 +7,12 @@ import { LoadingOverlay, SplashScreen } from 'components'
 import styles from './styles.module.css'
 
 import { Header } from './partials'
+import { useMediaQuery } from 'hooks/useMediaQuery'
 
 const PageLayout = ({ children, match }) => {
   const isLoading = useSelector(({ common }) => common.loading)
+
+  const isMobile = useMediaQuery('(max-width: 1200px)')
 
   const location = useLocation()
 
@@ -19,11 +22,24 @@ const PageLayout = ({ children, match }) => {
 
   return (
     <div className={styles.container}>
-      {/* {isLoading && <LoadingOverlay />} */}
-      <Suspense fallback={<SplashScreen />}>
-        {hasHeader() && <Header bgEnable={location.pathname != '/'} />}
-        <div className={styles.content}>{children}</div>
-      </Suspense>
+      {isMobile ? (
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <h1 style={{ color: 'white' }}>لطفا از نسخه دسکتاپ استفاده کنید</h1>
+        </div>
+      ) : (
+        <Suspense fallback={<SplashScreen />}>
+          {hasHeader() && <Header bgEnable={location.pathname != '/'} />}
+          <div className={styles.content}>{children}</div>
+        </Suspense>
+      )}
     </div>
   )
 }

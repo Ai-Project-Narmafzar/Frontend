@@ -5,6 +5,7 @@ const GET_POSTS_URL = `/posts/`
 const TOGGLE_LIKE_POST_URL = (id) => `/posts/${id}/like/`
 const GET_SINGLE_POST_URL = (id) => `/posts/${id}/`
 const GET_POST_COMMNENTS_URL = (id) => `/posts/${id}/comments/`
+const FOLLOW_USER_URL = (id) => `/follow/${id}/`
 
 const PostService = () => {
   const GetPosts = (params) => {
@@ -29,7 +30,18 @@ const PostService = () => {
     return Api.post(GET_POSTS_URL, data)
   }
 
-  return { GetPosts, ToggleLikePost, GetSinglePost, GetPostComments, GeneratePost }
+  const FollowUser = (id) => {
+    return Api.post(FOLLOW_USER_URL(id))
+  }
+
+  return {
+    GetPosts,
+    ToggleLikePost,
+    GetSinglePost,
+    GetPostComments,
+    GeneratePost,
+    FollowUser,
+  }
 }
 
 export default PostService

@@ -39,7 +39,10 @@ Api.interceptors.request.use(
     const access_token = store.getState().auth.token
 
     // add access token to headers if exists
-    if (access_token && !config?.params?.remove_token) {
+    if (access_token) {
+      if (config.params) {
+        if (config.params.remove_token) return config
+      }
       config.headers['Authorization'] = `token ${access_token}`
       config.headers[`Accept-Language`] = 'fa'
     }

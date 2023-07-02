@@ -19,12 +19,20 @@ import Colors from 'utils/Colors'
 import { useSelector } from 'react-redux'
 
 const PostModal = ({ id, isOpen, setIsOpen }) => {
-  const { GetSinglePost, ToggleLikePost, GetPostComments } = PostService()
+  const {
+    GetSinglePost,
+    ToggleLikePost,
+    GetPostComments,
+    FollowUser,
+  } = PostService()
 
   const isAuthorized = useSelector(({ auth }) => auth.token)
+  const user = useSelector(({ auth }) => auth.user)
 
   const [liked, setLiked] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [followLoading, setFollowLoading] = useState(false)
+  const [followed, setFollowed] = useState(false)
 
   const { data: post, isFetching, refetch } = useQuery({
     queryKey: [`[Single] post-${id}`],
@@ -50,14 +58,26 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
       })
   }
 
+  const toggleFollow = () => {
+    setFollowLoading(true)
+    FollowUser(post.owner.id)
+      .then((result) => {
+        setFollowLoading(false)
+        setFollowed(!followed)
+      })
+      .catch((err) => {
+        setFollowLoading(false)
+      })
+  }
+
+  console.log(post)
+
   useEffect(() => {
     if (id) {
       refetch()
       refetchComment()
     }
   }, [id])
-
-  console.log(comments)
 
   useEffect(() => {
     post && setLiked(post.liked)
@@ -72,12 +92,22 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
               <div className="header">
                 <img src={CloseIcon} onClick={() => setIsOpen(false)} />
                 <div className="d-flex align-items-center">
-                  <Button width={'140px'} height={'48px'}>
-                    دنبال کردن
-                    <img src={PlusIcon} />
-                  </Button>
+                  {user.id != post.owner.id && (
+                    <Button
+                      width={'140px'}
+                      height={'48px'}
+                      loading={followLoading}
+                      onClick={() => !loading && toggleFollow()}
+                    >
+                      {followed ? 'دنبال میکنید' : 'دنبال کردن'}
+                      <img src={PlusIcon} />
+                    </Button>
+                  )}
                   <h6 className="name">{post?.owner?.username}</h6>
-                  <img className="avatar" src={post.owner.avatar ? post.owner.avatar : SampleAvatar} />
+                  <img
+                    className="avatar"
+                    src={post.owner.avatar ? post.owner.avatar : SampleAvatar}
+                  />
                 </div>
               </div>
               <div className="content d-flex flex-column flex-grow-1">

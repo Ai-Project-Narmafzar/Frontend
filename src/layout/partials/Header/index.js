@@ -73,7 +73,7 @@ const Header = () => {
                     <User size={24} style={{ marginLeft: 8 }} />
                     پروفایل
                   </a>
-                  <a href="/profile/settings" className="menu-item">
+                  <a href="/profile/setting" className="menu-item">
                     <Setting size={24} style={{ marginLeft: 8 }} />
                     تنظیمات
                   </a>
