@@ -32,7 +32,7 @@ const validationSchema = Yup.object({
     ),
 })
 
-const Login = () => {
+const LoginPage = () => {
   const { Login } = AuthService()
 
   const dispatch = useDispatch()
@@ -67,6 +67,7 @@ const Login = () => {
           placeholder="ایمیل"
           onChange={(e) => formik.setFieldValue('username', e.target.value)}
           onBlur={() => formik.setFieldTouched('username', true)}
+          data-testid={'username-inp'}
         />
         {formik.touched.username && formik.errors.username ? (
           <span className="form-error">{formik.errors.username}</span>
@@ -78,6 +79,7 @@ const Login = () => {
           placeholder="رمزعبور"
           onChange={(e) => formik.setFieldValue('password', e.target.value)}
           onBlur={() => formik.setFieldTouched('password', true)}
+          data-testid={'password-inp'}
         />
         {formik.touched.password && formik.errors.password ? (
           <span className="form-error">{formik.errors.password}</span>
@@ -91,6 +93,7 @@ const Login = () => {
           height={'56px'}
           loading={loading}
           onClick={() => formik.submitForm()}
+          data-testid={'login-btn'}
         >
           ورود
         </Button>
@@ -104,4 +107,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginPage

@@ -7,7 +7,7 @@ const Button = ({ children, loading, ...props }) => {
     <CustomButton {...props}>
       {children}
       {loading && (
-        <div style={{ marginRight: 12 }}>
+        <div style={{ marginRight: 12 }} data-testid={'loading-elem'}>
           <ClipLoader color="white" size={20} />
         </div>
       )}

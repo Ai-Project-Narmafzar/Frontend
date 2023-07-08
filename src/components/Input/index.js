@@ -12,7 +12,11 @@ const Input = ({ type, ...props }) => {
         {...props}
       />
       {type == 'password' && (
-        <div className="sc-icon" onClick={() => setSecured(!secured)}>
+        <div
+          data-testid={'form-error'}
+          className="sc-icon"
+          onClick={() => setSecured(!secured)}
+        >
           {secured ? <Hide size={24} /> : <Show size={24} />}
         </div>
       )}

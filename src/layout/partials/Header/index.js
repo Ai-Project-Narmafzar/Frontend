@@ -7,6 +7,7 @@ import Colors from 'utils/Colors'
 import { useSelector } from 'react-redux'
 import { Setting, User } from 'react-iconly'
 import { Button } from 'components'
+import AuthService from 'services/Auth'
 
 const Header = () => {
   const NavbarRef = useRef()
@@ -14,8 +15,22 @@ const Header = () => {
 
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const user = useSelector(({ auth }) => auth.user)
+
+  const { LogoutUser } = AuthService()
+
+  const logoutUser = () => {
+    setLoading(true)
+    LogoutUser()
+      .then((result) => {
+        setLoading(false)
+      })
+      .catch((err) => {
+        setLoading(false)
+      })
+  }
 
   useEffect(() => {
     const handleScroll = (event) => {
@@ -78,7 +93,13 @@ const Header = () => {
                     تنظیمات
                   </a>
                 </div>
-                <Button type={'secondary'} width={'100%'} height={'48px'}>
+                <Button
+                  loading={loading}
+                  type={'secondary'}
+                  width={'100%'}
+                  height={'48px'}
+                  onClick={() => logoutUser()}
+                >
                   خروج
                 </Button>
               </div>

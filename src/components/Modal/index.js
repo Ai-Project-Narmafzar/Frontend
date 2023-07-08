@@ -4,7 +4,7 @@ import ReactModal from 'react-modal'
 
 import styles from './styles.module.css'
 
-ReactModal.setAppElement('#root')
+if (process.env.NODE_ENV !== 'test') ReactModal.setAppElement('#root')
 const Modal = ({
   isOpen,
   setIsOpen,
