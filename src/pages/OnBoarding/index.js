@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, PageTitle } from './styles'
 
-import OnbardingPic from 'assets/images/png/onboarding.png'
+import OnbardingPic from 'assets/images/png/onboarding.webp'
 import { Button } from 'components'
 
 const OnBoarding = () => {
