@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Container, ItemsContainer, LoginLink, NavItem } from './styles'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import { Logo, SampleAvatar } from 'assets/images'
 import Colors from 'utils/Colors'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Setting, User } from 'react-iconly'
 import { Button } from 'components'
 import AuthService from 'services/Auth'
+import { actions as authActions } from 'store/authRedux/actions'
 
 const Header = () => {
   const NavbarRef = useRef()
@@ -19,17 +20,12 @@ const Header = () => {
 
   const user = useSelector(({ auth }) => auth.user)
 
-  const { LogoutUser } = AuthService()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const logoutUser = () => {
-    setLoading(true)
-    LogoutUser()
-      .then((result) => {
-        setLoading(false)
-      })
-      .catch((err) => {
-        setLoading(false)
-      })
+    dispatch(authActions.logout())
+    navigate('/')
   }
 
   useEffect(() => {

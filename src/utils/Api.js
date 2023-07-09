@@ -23,9 +23,6 @@ const logoutUser = (refreshToken) => {
 // create axios instance
 const Api = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
   paramsSerializer: (params) => {
     return qs.stringify(params, {
       arrayFormat: 'repeat',
