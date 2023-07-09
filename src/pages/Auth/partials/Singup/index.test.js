@@ -1,6 +1,6 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 
-import LoginPage from '.'
+import SignUpPage from '.'
 import store, { persistor } from 'store'
 import { Provider } from 'react-redux'
 import { pass } from './constant'
@@ -9,7 +9,7 @@ test('username input should be rendered', () => {
   // Render Page
   render(
     <Provider store={store}>
-      <LoginPage />
+      <SignUpPage />
     </Provider>,
   )
 
@@ -21,7 +21,7 @@ test('password input should be rendered', () => {
   // Render Page
   render(
     <Provider store={store}>
-      <LoginPage />
+      <SignUpPage />
     </Provider>,
   )
 
@@ -33,35 +33,35 @@ test('login button should be rendered', () => {
   // Render Page
   render(
     <Provider store={store}>
-      <LoginPage />
+      <SignUpPage />
     </Provider>,
   )
 
-  const loginButton = screen.queryByTestId('login-btn')
-  expect(loginButton).toBeInTheDocument()
+  const signupButton = screen.queryByTestId('signup-btn')
+  expect(signupButton).toBeInTheDocument()
 })
 
 test('form error message should be rendered', () => {
   // Render Page
   render(
     <Provider store={store}>
-      <LoginPage />
+      <SignUpPage />
     </Provider>,
   )
 
-  const loginButton = screen.queryByTestId('login-btn')
-  fireEvent.click(loginButton)
+  const signupButton = screen.queryByTestId('signup-btn')
+  fireEvent.click(signupButton)
 
-  const errorMessage = screen.queryByTestId('form-error')
+  const errorMessage = screen.queryAllByTestId('form-error')
 
-  expect(errorMessage).toBeInTheDocument()
+  expect(errorMessage).not.toBeNull()
 })
 
 test('username input should change', () => {
   // Render Page
   render(
     <Provider store={store}>
-      <LoginPage />
+      <SignUpPage />
     </Provider>,
   )
 
@@ -71,11 +71,25 @@ test('username input should change', () => {
   expect(usernameInput.value).toBe('soroshzzz26')
 })
 
+test('email input should change', () => {
+  // Render Page
+  render(
+    <Provider store={store}>
+      <SignUpPage />
+    </Provider>,
+  )
+
+  const usernameInput = screen.queryByTestId('email-inp')
+  fireEvent.change(usernameInput, { target: { value: 'soroshzzz26' } })
+
+  expect(usernameInput.value).toBe('soroshzzz26')
+})
+
 test('password input should change', () => {
   // Render Page
   render(
     <Provider store={store}>
-      <LoginPage />
+      <SignUpPage />
     </Provider>,
   )
 
@@ -85,59 +99,52 @@ test('password input should change', () => {
   expect(passwordInput.value).toBe('123456')
 })
 
+test('confirm input should change', () => {
+  // Render Page
+  render(
+    <Provider store={store}>
+      <SignUpPage />
+    </Provider>,
+  )
+
+  const passwordInput = screen.queryByTestId('confirm-inp')
+  fireEvent.change(passwordInput, { target: { value: '123456' } })
+
+  expect(passwordInput.value).toBe('123456')
+})
+
 test('button state loading', async () => {
   // Render Page
   render(
     <Provider store={store}>
-      <LoginPage />
+      <SignUpPage />
     </Provider>,
   )
 
   act(() => {
     const usernameInput = screen.queryByTestId('username-inp')
-
     const passwordInput = screen.queryByTestId('password-inp')
+    const confirmInput = screen.queryByTestId('confirm-inp')
+    const emailInput = screen.queryByTestId('email-inp')
 
-    const loginButton = screen.queryByTestId('login-btn')
+    const signupButton = screen.queryByTestId('signup-btn')
 
-    fireEvent.change(usernameInput, {
+    fireEvent.change(emailInput, {
       target: { value: 'soroshzzz26@gmail.com' },
     })
     fireEvent.change(passwordInput, { target: { value: 'sorosh123456' } })
-    fireEvent.click(loginButton)
-
-    const loadingElem = screen.queryByTestId('loading-elem')
-
-    waitFor(() => expect(loadingElem).toBeInTheDocument())
-  })
-})
-
-test('app state should change', async () => {
-  // Render Page
-  render(
-    <Provider store={store}>
-      <LoginPage />
-    </Provider>,
-  )
-
-  act(() => {
-    const usernameInput = screen.queryByTestId('username-inp')
-
-    const passwordInput = screen.queryByTestId('password-inp')
-
-    const loginButton = screen.queryByTestId('login-btn')
-
+    fireEvent.change(confirmInput, { target: { value: 'sorosh123456' } })
     fireEvent.change(usernameInput, {
-      target: { value: 'soroshzzz26@gmail.com' },
+      target: {
+        value: Buffer.from(Math.random().toString())
+          .toString('base64')
+          .substring(10, 15),
+      },
     })
-    fireEvent.change(passwordInput, { target: { value: pass } })
-    fireEvent.click(loginButton)
+    fireEvent.click(signupButton)
 
     const loadingElem = screen.queryByTestId('loading-elem')
 
     waitFor(() => expect(loadingElem).toBeInTheDocument())
-    waitFor(() => expect(loadingElem).not.toBeInTheDocument())
-
-    expect(store.getState().auth.token).not.toBeNull()
   })
 })

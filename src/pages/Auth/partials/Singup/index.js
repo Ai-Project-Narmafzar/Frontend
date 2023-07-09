@@ -79,6 +79,7 @@ const Signup = () => {
           placeholder="ایمیل"
           onChange={(e) => formik.setFieldValue('email', e.target.value)}
           onBlur={() => formik.setFieldTouched('email', true)}
+          data-testid={'email-inp'}
         />
         {formik.touched.email && formik.errors.email ? (
           <span className="form-error">{formik.errors.email}</span>
@@ -89,6 +90,7 @@ const Signup = () => {
           placeholder="نام کاربری"
           onChange={(e) => formik.setFieldValue('username', e.target.value)}
           onBlur={() => formik.setFieldTouched('username', true)}
+          data-testid={'username-inp'}
         />
         {formik.touched.username && formik.errors.username ? (
           <span className="form-error">{formik.errors.username}</span>
@@ -100,6 +102,7 @@ const Signup = () => {
           placeholder="رمزعبور"
           onChange={(e) => formik.setFieldValue('password', e.target.value)}
           onBlur={() => formik.setFieldTouched('password', true)}
+          data-testid={'password-inp'}
         />
         {formik.touched.password && formik.errors.password ? (
           <span className="form-error">{formik.errors.password}</span>
@@ -111,6 +114,7 @@ const Signup = () => {
           placeholder="تکرار رمزعبور"
           onChange={(e) => formik.setFieldValue('confirm', e.target.value)}
           onBlur={() => formik.setFieldTouched('confirm', true)}
+          data-testid={'confirm-inp'}
         />
         {formik.touched.confirm && formik.errors.confirm ? (
           <span className="form-error">{formik.errors.confirm}</span>
@@ -120,7 +124,8 @@ const Signup = () => {
       <div style={{ width: '100%' }}>
         <Button
           loading={loading}
-          onClick={() => !loading && formik.submitForm()}
+          onClick={() => formik.submitForm()}
+          data-testid={'signup-btn'}
         >
           ثبت نام
         </Button>
