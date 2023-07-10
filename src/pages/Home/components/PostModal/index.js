@@ -71,7 +71,7 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
   }
 
   const toggleFollow = () => {
-    if (user && user.id != post.owner.id) {
+    if (user.id != post.owner.id) {
       setFollowLoading(true)
       FollowUser(post.owner.id)
         .then((result) => {
