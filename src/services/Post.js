@@ -34,6 +34,10 @@ const PostService = () => {
     return Api.post(FOLLOW_USER_URL(id))
   }
 
+  const SendComment = (id, data) => {
+    return Api.post(GET_POST_COMMNENTS_URL(id), data)
+  }
+
   return {
     GetPosts,
     ToggleLikePost,
@@ -41,6 +45,7 @@ const PostService = () => {
     GetPostComments,
     GeneratePost,
     FollowUser,
+    SendComment,
   }
 }
 

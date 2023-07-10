@@ -6,6 +6,7 @@ import SampleAvatar from './png/sample-avatar.png'
 import SearchIcon from './svg/search.svg'
 import MoreIcon from './svg/more.svg'
 import DownloadIcon from './svg/download.svg'
+import LinkIcon from './svg/link.svg'
 import ImgIcon from './svg/img.svg'
 import ChevronDownIcon from './svg/chevron-down.svg'
 import ChevronUpIcon from './svg/chevron-up.svg'
@@ -42,5 +43,6 @@ export {
   HeartOutlinedWhiteIcon,
   CloseIcon,
   PlusIcon,
-  SampleAvatar
+  SampleAvatar,
+  LinkIcon,
 }

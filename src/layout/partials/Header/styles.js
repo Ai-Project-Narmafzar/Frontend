@@ -31,6 +31,12 @@ export const Container = Styled('header')`
         color: white;
     }
 
+    .profile-row img {
+        width: 40px;
+        height: 40px; 
+        border-radius: 50%;
+    }
+
     .menu {
         position: absolute;
         width: 206px;

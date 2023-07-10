@@ -44,3 +44,10 @@ export const _queryToUrlParams = (query) => {
 
   return params
 }
+
+export const downloadFile = (filePath) => {
+  var link = document.createElement('a')
+  link.href = filePath
+  link.download = filePath.substr(filePath.lastIndexOf('/') + 1)
+  link.click()
+}

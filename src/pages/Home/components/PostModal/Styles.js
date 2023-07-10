@@ -88,4 +88,39 @@ export const Container = Styled('div')`
         line-height: 13px;
         color: #96989C;
     }
+
+    .action-item {
+        display: flex;
+        align-items-center;
+        color: #FFF;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal; 
+        cursor:pointer;
+    }
+
+    .comment-inp {
+        width:100%;
+        position:relative;
+        padding:15px 24px;
+        background: ${Colors.grey2};
+        border-radius: 12px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+        color: #FFFFFF;
+        border: none;
+        outline: none;
+        text-align:right;
+        transition: .3s box-shadow ease-in-out;
+    
+        &::placeholder {
+            color: #a3a9b2;
+        }
+    
+        &:focus {
+            box-shadow: 0px 2px 11px 1px rgba(243,101,51,0.5);
+        }
+    }
 `
