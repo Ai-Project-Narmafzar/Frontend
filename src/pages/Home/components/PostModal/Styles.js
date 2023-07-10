@@ -5,6 +5,7 @@ export const Container = Styled('div')`
     width:100%;
     height:100%;
     padding: 32px 40px;
+    overflow: hidden;
     
     .modal-img {
         width: 100%;

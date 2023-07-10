@@ -98,7 +98,7 @@ const Setting = () => {
           loading={loading}
           onClick={() => !loading && updateProfile()}
         >
-          ورود
+          ثبت
         </Button>
       </FormContainer>
     </Container>

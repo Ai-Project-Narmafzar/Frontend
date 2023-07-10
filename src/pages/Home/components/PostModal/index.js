@@ -117,7 +117,11 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
       <Container>
         {!isFetching && post ? (
           <Row gutterWidth={29} style={{ height: '100%' }}>
-            <Col xs={7} className="d-flex flex-column">
+            <Col
+              xs={7}
+              className="d-flex flex-column"
+              style={{ overflowY: 'scroll', height: '100%' }}
+            >
               <div className="header">
                 <img src={CloseIcon} onClick={() => setIsOpen(false)} />
                 <div className="d-flex align-items-center">
@@ -135,10 +139,16 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
                     <img src={PlusIcon} />
                   </Button>
 
-                  <h6 className="name">{post?.owner?.username}</h6>
+                  <h6
+                    className="name"
+                    onClick={() => navigate(`/profile/${post?.owner?.id}`)}
+                  >
+                    {post?.owner?.username}
+                  </h6>
                   <img
                     className="avatar"
                     src={post.owner.avatar ? post.owner.avatar : SampleAvatar}
+                    onClick={() => navigate(`/profile/${post?.owner?.id}`)}
                   />
                 </div>
               </div>
@@ -183,7 +193,7 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
                   {comments &&
                     comments.map((comment) => (
                       <div className="comment-card">
-                        <img id="avatar" src={SampleAvatar} />
+                        <img id="avatar" src={post?.owner?.avatar} />
                         <div className="d-flex flex-column">
                           <h4 id="name">{comment?.owner?.username}</h4>
                           <p id="comment">{comment?.description}</p>
