@@ -71,15 +71,19 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
   }
 
   const toggleFollow = () => {
-    setFollowLoading(true)
-    FollowUser(post.owner.id)
-      .then((result) => {
-        setFollowLoading(false)
-        setFollowed(!followed)
-      })
-      .catch((err) => {
-        setFollowLoading(false)
-      })
+    if (user && user.id != post.owner.id) {
+      setFollowLoading(true)
+      FollowUser(post.owner.id)
+        .then((result) => {
+          setFollowLoading(false)
+          setFollowed(!followed)
+        })
+        .catch((err) => {
+          setFollowLoading(false)
+        })
+    } else {
+      toast.warn('نمیتوانید خودتان را دنبال کنید')
+    }
   }
 
   const sendComment = () => {
@@ -89,7 +93,7 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
         setCommentLoading(false)
         toast.success('کامنت با موفقیت ارسال شد')
         refetchComment()
-        setComment("")
+        setComment('')
       })
       .catch((err) => {
         setCommentLoading(false)
@@ -122,9 +126,9 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
                     height={'48px'}
                     loading={followLoading}
                     onClick={() =>
-                      user && user.id != post.owner.id
-                        ? navigate('/auth/login')
-                        : !loading && toggleFollow()
+                      isAuthorized
+                        ? !loading && toggleFollow()
+                        : navigate('/auth/login')
                     }
                   >
                     {followed ? 'دنبال میکنید' : 'دنبال کردن'}
@@ -157,7 +161,7 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
                         style={{
                           display: 'flex',
                           justifyContent: 'flex-end',
-                          margin: "16px 0",
+                          margin: '16px 0',
                         }}
                       >
                         <Button
