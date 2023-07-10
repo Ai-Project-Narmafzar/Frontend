@@ -86,12 +86,12 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
     setCommentLoading(true)
     SendComment(id, { description: comment })
       .then((result) => {
-        setLoading(false)
+        setCommentLoading(false)
         toast.success('کامنت با موفقیت ارسال شد')
         refetchComment()
       })
       .catch((err) => {
-        setLoading(false)
+        setCommentLoading(false)
         toast.error('خطا در ارسال کامنت')
       })
   }
@@ -140,7 +140,7 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
               <div className="content d-flex flex-column flex-grow-1">
                 <p className="desc">{post?.description}</p>
                 <div className="d-flex flex-column">
-                  {comments && comments.length > 0 && (
+                  {(isAuthorized || comments.length > 0) && (
                     <h4 className="comment-title">کامنت</h4>
                   )}
                   {isAuthorized && (
@@ -156,17 +156,17 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
                         style={{
                           display: 'flex',
                           justifyContent: 'flex-end',
-                          marginTop: 16,
+                          margin: "16px 0",
                         }}
                       >
                         <Button
                           loading={commentLoading}
                           width={'132px'}
                           onClick={() => {
-                            if (comment.length > 6) {
+                            if (comment.length > 3) {
                               sendComment()
                             } else {
-                              toast.warning('حداقل 6 کاراکتر وارد نمایید')
+                              toast.warning('حداقل 3 کاراکتر وارد نمایید')
                             }
                           }}
                         >
