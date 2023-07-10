@@ -89,6 +89,7 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
         setCommentLoading(false)
         toast.success('کامنت با موفقیت ارسال شد')
         refetchComment()
+        setComment("")
       })
       .catch((err) => {
         setCommentLoading(false)

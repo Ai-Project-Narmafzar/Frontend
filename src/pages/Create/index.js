@@ -67,18 +67,32 @@ const Create = () => {
           </>
         )}
       </ImagePlaceholder>
-      <div className="w-100 d-flex justify-content-center">
-        <Button
-          width={'162px'}
-          height={'56px'}
-          onClick={() => {
-            setPrompt('')
-            setResult()
-          }}
-        >
-          ریست
-        </Button>
-      </div>
+      {result && (
+        <div className="w-100 d-flex justify-content-center">
+          <div style={{ marginLeft: 12 }}>
+            <Button
+              type={'secondary'}
+              width={'162px'}
+              height={'56px'}
+              onClick={() => {
+                setPrompt('')
+                setResult()
+              }}
+            >
+              ریست
+            </Button>
+          </div>
+          <Button
+            width={'162px'}
+            height={'56px'}
+            onClick={() => {
+              window.open(result?.image)
+            }}
+          >
+            دانلود
+          </Button>
+        </div>
+      )}
     </Container>
   )
 }
