@@ -32,7 +32,9 @@ const PageLayout = ({ children, match }) => {
             alignItems: 'center',
           }}
         >
-          <h1 style={{ color: 'white' }}>لطفا از نسخه دسکتاپ استفاده کنید</h1>
+          <h1 style={{ color: 'white', textAlign: 'center' }}>
+            لطفا از نسخه دسکتاپ استفاده کنید
+          </h1>
         </div>
       ) : (
         <Suspense fallback={<SplashScreen />}>

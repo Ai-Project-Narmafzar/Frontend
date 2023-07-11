@@ -20,7 +20,7 @@ import { Container } from './Styles'
 
 import { useQuery } from '@tanstack/react-query'
 import PostService from 'services/Post'
-import { Download, Heart } from 'react-iconly'
+import { Delete, Download, Heart } from 'react-iconly'
 import Colors from 'utils/Colors'
 
 import { useSelector } from 'react-redux'
@@ -32,6 +32,7 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
     GetPostComments,
     FollowUser,
     SendComment,
+    DeleteComment
   } = PostService()
 
   const navigate = useNavigate()
@@ -43,6 +44,7 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
   const [loading, setLoading] = useState(false)
   const [followLoading, setFollowLoading] = useState(false)
   const [commentLoading, setCommentLoading] = useState(false)
+  const [commentDelLoading, setCommentDelLoading] = useState(false)
   const [comment, setComment] = useState('')
   const [followed, setFollowed] = useState(false)
 
@@ -101,6 +103,20 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
       })
   }
 
+  const deleteComment = (com_id) => {
+    setCommentDelLoading(true)
+    DeleteComment(id, com_id)
+      .then((result) => {
+        setCommentDelLoading(false)
+        toast.success('کامنت با موفقیت حذف شد')
+        refetchComment()
+      })
+      .catch((err) => {
+        setCommentDelLoading(false)
+        toast.error('خطا در حذف کامنت')
+      })
+  }
+
   useEffect(() => {
     if (id) {
       refetch()
@@ -109,7 +125,7 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
   }, [id])
 
   useEffect(() => {
-    post && setLiked(post.liked)
+    post && setLiked(post.is_liked)
   }, [post])
 
   return (
@@ -136,7 +152,7 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
                     }
                   >
                     {followed ? 'دنبال میکنید' : 'دنبال کردن'}
-                    <img src={PlusIcon} />
+                    {!followed && <img src={PlusIcon} />}
                   </Button>
 
                   <h6
@@ -193,11 +209,25 @@ const PostModal = ({ id, isOpen, setIsOpen }) => {
                   {comments &&
                     comments.map((comment) => (
                       <div className="comment-card">
-                        <img id="avatar" src={post?.owner?.avatar} />
+                        <img id="avatar" src={comment?.owner?.avatar} />
                         <div className="d-flex flex-column">
                           <h4 id="name">{comment?.owner?.username}</h4>
                           <p id="comment">{comment?.description}</p>
                         </div>
+                        {comment.owner.id == user?.id && (
+                          <div
+                            style={{ position: 'absolute', left: 8, top: 8 }}
+                          >
+                            {commentDelLoading ? (
+                              <ClipLoader color="white" size={20} />
+                            ) : (
+                              <Delete
+                                size={16}
+                                onClick={() => deleteComment(comment.id)}
+                              />
+                            )}
+                          </div>
+                        )}
                       </div>
                     ))}
                 </div>

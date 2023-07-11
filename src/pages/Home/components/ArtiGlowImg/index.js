@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Container } from './styles'
-import { Heart } from 'react-iconly'
+import { Delete, Heart } from 'react-iconly'
 import Colors from 'utils/Colors'
 import PostService from 'services/Post'
 import ClipLoader from 'react-spinners/ClipLoader'
@@ -14,12 +14,15 @@ const ArtiGlowImg = ({
   likes_count,
   is_liked,
   setPostModal,
+  onFinish,
 }) => {
-  const { ToggleLikePost } = PostService()
+  const { ToggleLikePost, DeletePost } = PostService()
 
   const isAuthorized = useSelector(({ auth }) => auth.token)
+  const user = useSelector(({ auth }) => auth.user)
 
   const [loading, setLoading] = useState(false)
+  const [delLoading, setDelLoading] = useState(false)
   const [liked, setLiked] = useState(is_liked)
   const [likesCount, setLikesCount] = useState(likes_count)
 
@@ -33,6 +36,18 @@ const ArtiGlowImg = ({
       })
       .catch((err) => {
         setLoading(false)
+      })
+  }
+
+  const deletePost = () => {
+    setDelLoading(true)
+    DeletePost(id)
+      .then((result) => {
+        setDelLoading(false)
+        onFinish()
+      })
+      .catch((err) => {
+        setDelLoading(false)
       })
   }
 
@@ -61,6 +76,23 @@ const ArtiGlowImg = ({
             />
           )}
           {likesCount}
+        </div>
+        <div className="del-con">
+          {delLoading ? (
+            <ClipLoader color="white" size={20} />
+          ) : (
+            owner?.id == user?.id && (
+              <Delete
+                style={{ marginLeft: 4 }}
+                onClick={(e) => {
+                  if (isAuthorized) {
+                    e.stopPropagation()
+                    deletePost()
+                  }
+                }}
+              />
+            )
+          )}
         </div>
       </div>
     </Container>

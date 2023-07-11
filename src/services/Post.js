@@ -6,6 +6,7 @@ const TOGGLE_LIKE_POST_URL = (id) => `/posts/${id}/like/`
 const GET_SINGLE_POST_URL = (id) => `/posts/${id}/`
 const GET_POST_COMMNENTS_URL = (id) => `/posts/${id}/comments/`
 const FOLLOW_USER_URL = (id) => `/follow/${id}/`
+const DELETE_COMMENT_URL = (post, id) => `/posts/${post}/comments/${id}/`
 
 const PostService = () => {
   const GetPosts = (params) => {
@@ -38,6 +39,14 @@ const PostService = () => {
     return Api.post(GET_POST_COMMNENTS_URL(id), data)
   }
 
+  const DeletePost = (id) => {
+    return Api.delete(GET_SINGLE_POST_URL(id))
+  }
+
+  const DeleteComment = (post, id) => {
+    return Api.delete(DELETE_COMMENT_URL(post, id))
+  }
+
   return {
     GetPosts,
     ToggleLikePost,
@@ -46,6 +55,8 @@ const PostService = () => {
     GeneratePost,
     FollowUser,
     SendComment,
+    DeletePost,
+    DeleteComment,
   }
 }
 

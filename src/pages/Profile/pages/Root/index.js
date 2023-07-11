@@ -46,7 +46,9 @@ const Root = () => {
   useEffect(() => {
     GetUserProfile(id ? id : user.id, { remove_token: true })
       .then((result) => {
-        dispatch(authActions.setUser(result))
+        if (!id) {
+          dispatch(authActions.setUser(result))
+        }
         setUserToShow(result)
         refetch()
       })
@@ -61,15 +63,15 @@ const Root = () => {
           id={postModal.data}
           setIsOpen={setPostModal}
         />
-        <h4 className="name-title">{user.username}</h4>
+        <h4 className="name-title">{userToShow?.username}</h4>
         <Divider width={'368px'} style={{ marginBottom: 27 }}></Divider>
         <div className="tabs-con" style={{ maxWidth: 398, marginBottom: 20 }}>
           <div className="info-col">
-            <h6>{user?.followers_count}</h6>
+            <h6>{userToShow?.followers_count}</h6>
             <span>دنبال کننده</span>
           </div>
           <div className="info-col">
-            <h6>{user?.following_count}</h6>
+            <h6>{userToShow?.following_count}</h6>
             <span>دنبال میکند</span>
           </div>
         </div>
@@ -96,6 +98,7 @@ const Root = () => {
                   <ArtiGlowImg
                     {...post}
                     setPostModal={setPostModal}
+                    onFinish={() => refetch()}
                   ></ArtiGlowImg>
                 </Col>
               ))

@@ -80,7 +80,7 @@ const Header = () => {
             {menuOpen && (
               <div className="menu">
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <a href="/profile" className="menu-item">
+                  <a href="/profile/me" className="menu-item">
                     <User size={24} style={{ marginLeft: 8 }} />
                     پروفایل
                   </a>

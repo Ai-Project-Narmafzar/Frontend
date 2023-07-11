@@ -63,6 +63,7 @@ const Home = () => {
                 <ArtiGlowImg
                   {...post}
                   setPostModal={setPostModal}
+                  onFinish={() => refetch()}
                 ></ArtiGlowImg>
               </Col>
             ))

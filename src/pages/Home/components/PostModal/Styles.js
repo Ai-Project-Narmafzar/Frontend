@@ -35,6 +35,7 @@ export const Container = Styled('div')`
         height: 48px;
         border-radius: 24px;
         margin-right: 8px;
+        object-fit:cover;
     }
 
     .footer {
@@ -66,6 +67,7 @@ export const Container = Styled('div')`
         padding: 8px 16px;
         display: flex;
         align-items:flex-start;
+        position: relative;
     }
 
     .comment-card #avatar {

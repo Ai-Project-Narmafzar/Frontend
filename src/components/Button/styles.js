@@ -8,7 +8,8 @@ export const CustomButton = Styled('a')`
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
+    white-space: nowrap;
     line-height: 18px;
     color: ${Colors.text};
     background-color: ${({ type }) =>

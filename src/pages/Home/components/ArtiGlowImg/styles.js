@@ -37,6 +37,7 @@ background-size: cover;
     right: 0;
     margin: 0 auto;
     text-align: center;
+    padding: 0 12px;
 }
 
 & .name {
@@ -57,6 +58,19 @@ background-size: cover;
     display: flex;
     align-items: center;
     right: 7%;
+    top: 6%;
+    position: absolute;
+}
+
+
+& .del-con {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    left: 7%;
     top: 6%;
     position: absolute;
 }

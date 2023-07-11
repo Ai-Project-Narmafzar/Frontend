@@ -14,6 +14,7 @@ const Profile = () => {
   return (
     <Container>
       <Switch>
+        <Route path={`/me`} element={<Root />} />
         <Route path={`/:id`} element={<Root />} />
         <Route path={`/setting`} element={<Setting />} />
       </Switch>
