@@ -10,7 +10,7 @@ const DELETE_COMMENT_URL = (post, id) => `/posts/${post}/comments/${id}/`
 
 const PostService = () => {
   const GetPosts = (params) => {
-    return Api.get(GET_POSTS_URL, params)
+    return Api.get(GET_POSTS_URL, { params })
   }
 
   const ToggleLikePost = (id) => {
