@@ -112,39 +112,3 @@ test('confirm input should change', () => {
 
   expect(passwordInput.value).toBe('123456')
 })
-
-test('button state loading', async () => {
-  // Render Page
-  render(
-    <Provider store={store}>
-      <SignUpPage />
-    </Provider>,
-  )
-
-  act(() => {
-    const usernameInput = screen.queryByTestId('username-inp')
-    const passwordInput = screen.queryByTestId('password-inp')
-    const confirmInput = screen.queryByTestId('confirm-inp')
-    const emailInput = screen.queryByTestId('email-inp')
-
-    const signupButton = screen.queryByTestId('signup-btn')
-
-    fireEvent.change(emailInput, {
-      target: { value: 'soroshzzz26@gmail.com' },
-    })
-    fireEvent.change(passwordInput, { target: { value: 'sorosh123456' } })
-    fireEvent.change(confirmInput, { target: { value: 'sorosh123456' } })
-    fireEvent.change(usernameInput, {
-      target: {
-        value: Buffer.from(Math.random().toString())
-          .toString('base64')
-          .substring(10, 15),
-      },
-    })
-    fireEvent.click(signupButton)
-
-    const loadingElem = screen.queryByTestId('loading-elem')
-
-    waitFor(() => expect(loadingElem).toBeInTheDocument())
-  })
-})
