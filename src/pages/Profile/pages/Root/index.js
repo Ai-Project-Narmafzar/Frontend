@@ -36,7 +36,8 @@ const Root = () => {
 
   const { data: posts, isFetching, refetch } = useQuery({
     queryKey: ['[List] posts'],
-    queryFn: () => GetPosts({ owner: user.id }).then((result) => result),
+    queryFn: () =>
+      GetPosts({ owner: id ? id : user.id }).then((result) => result),
     enabled: false,
   })
 
